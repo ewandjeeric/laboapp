@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form class="example-form" (ngSubmit)="addCountry()" #country="ngForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Country Name</mat-label>
+          <input name="CountryName" type="text" matInput required ngModel placeholder="">
+          <mat-error  *ngIf="country.value.CountryName == '' && country.submitted">
+            The field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Country code</mat-label>
+            <input name="CountryCode" type="text" matInput required ngModel placeholder="">
+            <mat-error  *ngIf="country.value.CountryCode == '' && country.submitted">
+              The field is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Year</mat-label>
+              <input name="Year" type="number" matInput required ngModel placeholder="">
+              <mat-error  *ngIf="country.value.Year == '' && country.submitted">
+                The field is required
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Value</mat-label>
+                <input name="id" type="number" matInput required ngModel placeholder="">
+                <mat-error  *ngIf="country.value.id == '' && country.submitted">
+                  The field is required
+                </mat-error>
+              </mat-form-field>
+
+      <!--  <div class="form-group">
+          <label>Country Name</label>
+          <input name="CountryName" [ngClass]="{'is-invalid':country.value.CountryName == '' && country.submitted}" type="text" class="form-control" ngModel required/>
+          <div class="invalid-feedback">
+            The field is required
+          </div>
+        </div>-->
+        <!--<div class="form-group">
+          <label>Country Code</label>
+          <input name="CountryCode" type="text" class="form-control" ngModel required/>
+        </div>-->
+        <!--<div class="form-group">
+          <label>Year</label>
+          <input name="Year" type="number" class="form-control" ngModel required/>
+        </div>-->
+        <!--<div class="form-group">
+          <label>Value</label>
+          <input name="id" type="number" class="form-control" ngModel required/>
+        </div>-->
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </form>
+    </div>
+    <div class="col-6">
+      <form (ngSubmit)="addCountryReactive()" [formGroup]="formCountry">
+        <div class="form-group">
+          <div class="form-group">
+            <label>Country Name</label>
+            <input  formControlName="CountryName" [ngClass]="{'is-invalid':formCountry.controls['CountryName'].errors && submitted}" type="text" class="form-control" ngModel required/>
+            <div class="invalid-feedback">
+              The field is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Country Code</label>
+            <input formControlName="CountryCode" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Year</label>
+            <input formControlName="Year" type="number" class="form-control" required/>
+          </div>
+          <div class="form-group">
+            <label>Value</label>
+            <input formControlName="id" type="number" class="form-control" required/>
+          </div>
+          <button class="btn btn-info" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

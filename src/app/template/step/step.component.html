@@ -1,0 +1,98 @@
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-6">
+     <!-- <button mat-raised-button (click)="isEditable = !isEditable">
+        {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+      </button> -->
+
+      <mat-stepper linear #stepper>
+        <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+          <form class="example-form" [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your country</ng-template>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>CountryName</mat-label>
+              <input type="text" matInput formControlName="CountryName" placeholder="" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>CountryCode</mat-label>
+              <input matInput type="text" formControlName="CountryCode" placeholder="" required>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+          <form class="example-form" [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Year</mat-label>
+              <input type="number" matInput formControlName="Year" placeholder="" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>id</mat-label>
+              <input type="number" matInput formControlName="id" placeholder="" required>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button class="m-1" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-raised-button class="m-1" matStepperPrevious>Back</button>
+            <!--<button mat-raised-button class="m-1" color="primary" (click)="stepper.reset()">Reset</button>-->
+            <button mat-raised-button class="m-1" color="primary" (click)="submitform()">Send</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+
+    </div>
+
+    <!--<div class="col-6">
+
+      <mat-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+          <form class="example-form" [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+
+              <button  mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+          <form class="example-form" [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
+                     required>
+            </mat-form-field>
+            <div>
+
+              <button mat-raised-button class="m-1" matStepperPrevious>Back</button>
+              <button  mat-raised-button class="m-1" color="primary"  matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-raised-button class="m-1" matStepperPrevious>Back</button>
+            <button  mat-raised-button class="m-1" color="primary"  (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+
+    </div>-->
+  </div>
+</div>
